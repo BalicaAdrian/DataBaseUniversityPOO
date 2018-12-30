@@ -6,7 +6,7 @@
 #include<string>
 class Activity {
 public:
-
+	Activity();
 	Activity(Room*, Person*, std::string);
 	void SetRoom(Room*);
 	void SetOwner(Person*);

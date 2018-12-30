@@ -153,7 +153,9 @@
   <ItemGroup>
     <ClInclude Include="Activity.h" />
     <ClInclude Include="ActivityRepository.h" />
+    <ClInclude Include="ClassBook.h" />
     <ClInclude Include="Discipline.h" />
+    <ClInclude Include="DisciplineRepository.h" />
     <ClInclude Include="Mark.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Person.h" />
@@ -168,7 +170,9 @@
   <ItemGroup>
     <ClCompile Include="Activity.cpp" />
     <ClCompile Include="ActivityRepository.cpp" />
+    <ClCompile Include="ClassBook.cpp" />
     <ClCompile Include="Discipline.cpp" />
+    <ClCompile Include="DisciplineRepository.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Mark.cpp" />
     <ClCompile Include="pch.cpp">

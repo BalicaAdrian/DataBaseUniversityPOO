@@ -54,6 +54,12 @@
     <ClInclude Include="Mark.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ClassBook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DisciplineRepository.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -96,6 +102,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Mark.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ClassBook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DisciplineRepository.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

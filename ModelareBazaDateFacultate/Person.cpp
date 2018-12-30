@@ -14,7 +14,7 @@ Person::Person (std::string FirstName, std::string LastName, int CNP, std::strin
 	m_Email = Email;
 }
 
-Person::Person(std::string FirstName , std::string LastName, int CNP, std::string role, std::string Email)
+/*Person::Person(std::string FirstName , std::string LastName, int CNP, std::string role, std::string Email)
 {
 	m_CNP = CNP;
 	m_Email = Email;
@@ -27,7 +27,7 @@ Person::Person(std::string FirstName , std::string LastName, int CNP, std::strin
 	if (role == "teacher") {
 		m_Roles.push_back(new TeacherRole);
 	}
-}
+}*/
 
 Person::Person()
 {
@@ -84,6 +84,14 @@ Role::TypeRole Person::GetRole(int Role)
 	throw std::runtime_error("This person haven't this role!");
 
 }
+
+Role * Person::searchRole(int role)
+{
+	for (int i = 0; i <= m_Roles.size(); i++)
+		if (role == m_Roles[i]->GetMyType())
+			return m_Roles[i];
+	throw std::runtime_error("Role couldn't be found!");
+}
 	
 
 
@@ -94,7 +102,7 @@ Role::TypeRole Person::GetRole(int Role)
 
 std::istream & operator>>(std::istream & stream, Person& OnePerson)
 {
-	char c;
+	//char c;
 	std::cout << "Dati primul nume: ";
 	stream >> OnePerson.m_FirstName;
 	std::cout << "Dati al doilea nume: ";

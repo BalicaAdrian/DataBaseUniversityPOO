@@ -1,14 +1,14 @@
 #pragma once
 #include <iostream>
 #include "Discipline.h"
-
-class Mark {
+class Mark{
 public:
+	Mark(float, Discipline*);
 	void SetNote(float);
 	float GetNote();
 	void SetDiscipline(Discipline*);
-	Discipline* GetDiscipline();
+     std::string GetDiscipline();
 protected:
-	float m_Note;
+	float m_Grade;
 	Discipline* m_Discipline;
 };

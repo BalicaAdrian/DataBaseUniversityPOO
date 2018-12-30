@@ -1,6 +1,10 @@
 #include "pch.h"
 #include "Activity.h"
 
+Activity::Activity()
+{
+}
+
 Activity::Activity(Room * Location , Person * Owner, std::string Description)
 {
 	m_Room = Location;

@@ -6,7 +6,7 @@
 class Person {
 public:
 	Person(std::string FirstName, std::string LastName, int CNP, std::string Email = "");
-	Person(std::string , std::string, int ,std::string , std::string Email = "");
+	//Person(std::string , std::string, int ,std::string , std::string Email = "");
 
 	Person();
 	friend std::istream& operator>>(std::istream&, Person&);
@@ -20,7 +20,7 @@ public:
 	int GetCNP();
 	void AddRole(Role*);
 	Role::TypeRole GetRole(int);
-	
+	Role* searchRole(int);
 protected:
 	std::string m_FirstName;
 	std::string m_LastName;
