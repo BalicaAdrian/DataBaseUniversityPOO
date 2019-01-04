@@ -12,7 +12,7 @@ public:
 		ACTIVItY,
 		DISCIPLINE,
 		CLASSBOOK,
-		//REPOSITORY,
+		REPOSITORY,
 		EXIT
 	};
 	
@@ -23,7 +23,28 @@ public:
 	void DisciplineMenu();
 	void ClassBookMenu();
 	//void RepositoryMenu();
+	//FUNCITON FOR MENU Person
+	void AddPerson();
+	void AddRole(Person*);
+	void DeletePerson();
+	//functions for menu activity
+	void AddActivity();
+	void DeleteActivity();
+	//functions for Discipline
+	void CreateDiscipline();
+	void DeleteDiscipline();
+	void EnrollStudent();
+	void RemoveStudentfromDiscipline();
 
+	// functions for classbook
+	void CreateClassBook();
+	void DeleteClassBook();
+	void AddStudent();
+	void RemovestudentFromBook();
+	void AddMark();
+	void FindStudent();
+
+	
 protected:
 	PersonRepository persons;
 	RoomRepository rooms;

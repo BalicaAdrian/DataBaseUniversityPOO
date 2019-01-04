@@ -111,7 +111,7 @@ std::istream & operator>>(std::istream & stream, Person& OnePerson)
 	stream >> OnePerson.m_CNP;
 	std::cout << "Dati Email: ";
 	stream >> OnePerson.m_Email;
-	for (int i = 0; i < OnePerson.m_Roles.size(); i++)
+	/*for (int i = 0; i < OnePerson.m_Roles.size(); i++)
 		if (OnePerson.m_Roles[i]->GetMyType() == Role::STUDENT_ROLE)
 		{
 			StudentRole * aux = dynamic_cast<StudentRole*>(OnePerson.m_Roles[i]);
@@ -119,20 +119,25 @@ std::istream & operator>>(std::istream & stream, Person& OnePerson)
 			int group;
 			stream >> group;
 			aux->SetGroup(group);
-		}
+		}*/
 			return stream;
 }
 
 std::ostream & operator<<(std::ostream & stream, Person & OnePerson)
 {
 	stream << "\n Numele:" << OnePerson.m_FirstName << " " << OnePerson.m_LastName << "\n CNP:" << OnePerson.m_CNP << "\n Email:" << OnePerson.m_Email << "\n";
-	for (int i = 0; i < OnePerson.m_Roles.size(); i++)
+	for (int i = 0; i < OnePerson.m_Roles.size(); i++) {
 		if (OnePerson.m_Roles[i]->GetMyType() == Role::STUDENT_ROLE)
 		{
 			StudentRole * aux = dynamic_cast<StudentRole*>(OnePerson.m_Roles[i]);
-			stream << "Grupa:" << aux->GetGroup();
-			//stream << "Grupa:" << dynamic_cast<StudentRole*>(OnePerson.m_Roles[i])->GetGroup();
+			stream << "\nGrupa:" << aux->GetGroup() << "\nYear:" << aux->GetYear() << "\n ID:" << aux->GetID();
+
+
 		}
-			
+		if (OnePerson.m_Roles[i]->GetMyType() == Role::TEACHER_ROLE) {
+			TeacherRole * aux = dynamic_cast<TeacherRole*>(OnePerson.m_Roles[i]);
+			stream << "\n Subject:" << aux->GetSubject();
+		}
+	}
 	return stream;
 }
