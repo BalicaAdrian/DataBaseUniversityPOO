@@ -7,7 +7,7 @@ class Repository
 public:
 	void add(Entity*);
 	void remove(Entity *);
-
+	
 
 	protected:
 		std::vector<Entity*>m_Entities;

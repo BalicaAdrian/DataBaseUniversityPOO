@@ -22,7 +22,7 @@ public:
 	void ActivityMenu();
 	void DisciplineMenu();
 	void ClassBookMenu();
-	//void RepositoryMenu();
+	void RepositoryMenu();
 	//FUNCITON FOR MENU Person
 	void AddPerson();
 	void AddRole(Person*);
@@ -43,6 +43,8 @@ public:
 	void RemovestudentFromBook();
 	void AddMark();
 	void FindStudent();
+	//functions for repository
+	void SearchThroughRepositories();
 
 	
 protected:

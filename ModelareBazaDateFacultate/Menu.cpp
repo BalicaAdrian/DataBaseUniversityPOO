@@ -47,7 +47,7 @@ start:
 		goto FirstMenu;
 
 	case Type::REPOSITORY:
-//		RepositoryMenu();
+		RepositoryMenu();
 		goto FirstMenu;
 
 	case Type::EXIT:
@@ -278,6 +278,39 @@ start:
 	}
 }
 
+void Menu::RepositoryMenu()
+{
+	enum Type {
+		SEARCH = 1,
+		RETURN
+
+	};
+
+Menu:
+	std::cout << "                    Repository Menu\n\n";
+	std::cout << "1. Search through repositories\n2. Return\n\n";
+	std::string input;
+
+start:
+	do {
+		std::cout << ">";
+		std::cin >> input;
+	} while (!Check(input));
+	int Sinput = std::stoi(input);
+	switch (Sinput) {
+	case SEARCH:
+		system("cls");
+		SearchThroughRepositories();
+		system("cls");
+	case RETURN:
+		system("cls");
+		break;
+	default:
+		cout << "Wrong input!\n";
+		goto start;
+	}
+}
+
 void Menu::AddPerson()
 {
 	Person* Newperson = new Person();
@@ -425,6 +458,7 @@ start:
 	}
 	cout << "Enter room name:"; cin >> roomname;
 	Room* room = new Room(roomname);
+	rooms.add(room);
 	Activity* newActivity = new Activity(room, owner, name);
 	activities.add(newActivity);
 
@@ -710,7 +744,7 @@ start:
 	std::cin >> firstname;
 	std::cout << "Enter students last name= ";
 	std::cin >> lastname;
-	std::cout << "Enter year of study(ex: Anul 1/Anul 2)= ";
+	std::cout << "Enter year of study(ex:1/2/3/4)= ";
 	std::cin >> year;
 	try {
 		newstudent = classbooks.searchbyFullNameAndYear(lastname, firstname, year);
@@ -720,7 +754,130 @@ start:
 		goto start;
 	}
 	std::cout << *newstudent;
+	system("pause");
 }
+
+void Menu::SearchThroughRepositories()
+{  Menuzero:
+	enum Type {
+		Persons=1,
+		Rooms,
+		Activities,
+		Classbooks,
+		Disciplines,
+		Return
+	};
+	cout << "What repositories you want to check?\n";
+	cout << "1. Persons\n2. Rooms\n3. Activities\n4. Classbooks\n5. Disciplines\n\n6. Return\n\n";
+	std::string input;
+start:
+	do {
+		cout << ">>";
+		cin >> input;
+
+	} while (!Check(input));
+
+	int Sinput = std::stoi(input);
+	switch (Sinput) {
+	case Persons: {
+		std::string firstname, lastname;
+		Person* newperson;
+
+	FirstMenu:
+		cout << "Enter students first name= ";
+		cin >> firstname;
+		cout << "Enter students last name= ";
+		cin >> lastname;
+		try {
+			newperson = persons.SearchByFullName(lastname, firstname);
+		}
+		catch (std::runtime_error const e) {
+			std::cout << e.what() << "\n";
+			goto FirstMenu;
+		}
+		std::cout << *newperson;
+		goto Menuzero;
+	}
+
+	case Activities: {
+		std::string activityname;
+		Activity* newactivity;
+
+	SecondMenu:
+		cout << "Name of activity:"; cin >> activityname;
+		try {
+			newactivity = activities.SearchByDescription(activityname);
+
+		}
+		catch (std::runtime_error const e) {
+			std::cout << e.what() << " \n";
+			goto SecondMenu;
+		}
+		cout << "Owner:" << newactivity->GetOwner() << " ";
+		cout << "Lacation :" << newactivity->GetRoom() << "\n";
+		goto Menuzero;
+	}
+
+	case Rooms: {
+		std::string name;
+	ThirdMenu:
+		cout << "Enter room name:"; cin >> name;
+		try {
+			rooms.SearchByName(name);
+		}
+		catch (std::runtime_error const e) {
+			std::cout << e.what() << "\n";
+			goto ThirdMenu;
+		}
+		std::cout << "This room exist!";
+		goto Menuzero;
+	}
+	case Classbooks: {
+		std::string year;
+		int group;
+		ClassBook* Classbook;
+	ForuthMenu:
+		cout << "Enter year:"; cin >> year;
+		cout << "Give the group:"; cin >> group;
+		try {
+			Classbook = classbooks.SearchByGroupandYear(group, year);
+		}
+		catch (std::runtime_error const e) {
+			std::cout << e.what() << "\n";
+			goto ForuthMenu;
+		}
+		cout << "Classbook has a number of" << Classbook->GetSizeOfBook() << "students";
+		goto Menuzero;
+	}
+	case Disciplines: {
+		std::string disciplinename;
+		Discipline* newdiscipline;
+	MenuFive:
+		cout << "Disciplines name:"; cin >> disciplinename;
+		try {
+			newdiscipline = disciplines.SearchByName(disciplinename);
+		}
+		catch (std::runtime_error const e) {
+			goto MenuFive;
+		}
+		cout << "Discipline has a number of" << newdiscipline->GetSizeActivities() << " activities \n";
+		cout << "Discipline has a number of" << newdiscipline->GetnumberofParticipants() << " participants \n";
+		system("pause");
+	}
+
+	case Return:
+		system("cls");
+		break;
+
+	default:
+		cout << "Wrong input!\n";
+		goto start;
+	}
+
+
+
+
+	}
 
 
 

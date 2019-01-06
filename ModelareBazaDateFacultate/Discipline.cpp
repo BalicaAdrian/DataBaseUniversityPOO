@@ -80,3 +80,13 @@ Activity * Discipline::GetActivity(std::string description)
 	throw std::runtime_error("This activity doesn't exist ");
 
 }
+
+int Discipline::GetSizeActivities()
+{
+	return m_Activities.size();
+}
+
+int Discipline::GetnumberofParticipants()
+{
+	return m_PeopleFromCourse.size();
+}

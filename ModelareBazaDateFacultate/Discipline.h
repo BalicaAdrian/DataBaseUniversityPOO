@@ -17,6 +17,8 @@ public:
 	std::string GetName();
 	std::vector<Activity*> GetActivities();
 	Activity* GetActivity(std::string );
+	int GetSizeActivities();
+	int GetnumberofParticipants();
 
 
 protected:
