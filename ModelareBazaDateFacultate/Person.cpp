@@ -103,13 +103,13 @@ Role * Person::searchRole(int role)
 std::istream & operator>>(std::istream & stream, Person& OnePerson)
 {
 	//char c;
-	std::cout << "Dati primul nume: ";
+	std::cout << "Give lastname(family name): ";
 	stream >> OnePerson.m_FirstName;
-	std::cout << "Dati al doilea nume: ";
+	std::cout << "Give first name: ";
 	stream >> OnePerson.m_LastName;
 	std::cout << "CNP: ";
 	stream >> OnePerson.m_CNP;
-	std::cout << "Dati Email: ";
+	std::cout << "Give Email: ";
 	stream >> OnePerson.m_Email;
 	/*for (int i = 0; i < OnePerson.m_Roles.size(); i++)
 		if (OnePerson.m_Roles[i]->GetMyType() == Role::STUDENT_ROLE)
@@ -125,7 +125,7 @@ std::istream & operator>>(std::istream & stream, Person& OnePerson)
 
 std::ostream & operator<<(std::ostream & stream, Person & OnePerson)
 {
-	stream << "\n Numele:" << OnePerson.m_FirstName << " " << OnePerson.m_LastName << "\n CNP:" << OnePerson.m_CNP << "\n Email:" << OnePerson.m_Email << "\n";
+	stream << "\n The name:" << OnePerson.m_FirstName << " " << OnePerson.m_LastName << "\n CNP:" << OnePerson.m_CNP << "\n Email:" << OnePerson.m_Email << "\n";
 	for (int i = 0; i < OnePerson.m_Roles.size(); i++) {
 		if (OnePerson.m_Roles[i]->GetMyType() == Role::STUDENT_ROLE)
 		{
