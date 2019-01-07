@@ -21,6 +21,8 @@ public:
 	void updateMark(std::string, float);
 	int GetMarkSize();
 	float MarkFromDiscipline(std::string);
+	Mark* GetMark(int);
+	bool CheckGrade(Discipline *);
     
 protected:
 	int m_Group;

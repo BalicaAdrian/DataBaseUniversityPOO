@@ -412,8 +412,14 @@ start:
 		cout << "Enter LastName:";
 		cin >> lastname;
 		Person* Newperson;
-		Newperson = persons.SearchByFullName(lastname, firstname);
-		persons.remove(Newperson);
+		try {
+			Newperson = persons.SearchByFullName(lastname, firstname);
+		}
+		catch (std::runtime_error const e) {
+			cout << e.what() << " ";
+			goto FirstMenu;
+		}
+			persons.remove(Newperson);
 		system("cls");
 		goto FirstMenu;
 	}

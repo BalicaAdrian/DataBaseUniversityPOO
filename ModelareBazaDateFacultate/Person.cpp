@@ -131,7 +131,8 @@ std::ostream & operator<<(std::ostream & stream, Person & OnePerson)
 		{
 			StudentRole * aux = dynamic_cast<StudentRole*>(OnePerson.m_Roles[i]);
 			stream << "\nGrupa:" << aux->GetGroup() << "\nYear:" << aux->GetYear() << "\n ID:" << aux->GetID();
-
+			for (i = 0; i < aux->GetMarkSize(); i++)
+				stream << "Student has mark" << aux->GetMark(i)->GetNote()<< " at " << aux->GetMark(i)->GetDiscipline();
 
 		}
 		if (OnePerson.m_Roles[i]->GetMyType() == Role::TEACHER_ROLE) {

@@ -51,7 +51,13 @@ void StudentRole::SetYear(int year)
 
 void StudentRole::addMark(float mark, Discipline * discipline)
 {
-	m_Marks.push_back(new Mark(mark, discipline));
+	if (CheckGrade(discipline)) {
+		updateMark(discipline->GetName(), mark);
+	}
+	else
+	{
+		m_Marks.push_back(new Mark(mark, discipline));
+	}
 }
 
 void StudentRole::removeMark(std::string discipline)
@@ -93,6 +99,21 @@ float StudentRole::MarkFromDiscipline(std::string NameOfDiscipline)
 		}
 	}
 	
+}
+
+Mark * StudentRole::GetMark(int i)
+{
+	return m_Marks[i];
+}
+
+bool StudentRole::CheckGrade(Discipline * discipline)
+{
+	for (int i = 0; i < m_Marks.size(); i++) {
+		if (m_Marks[i]->GetDiscipline() == discipline->GetName())
+			return true;
+	
+	}
+	return false;
 }
 
 
